@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<!-- Mirrored from 59.110.226.79:8888/police3D1.4/view/mainView.html by HTTrack Website Copier/3.x [XR&CO'2013], Mon, 18 Mar 2019 02:51:46 GMT -->
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<title>if</title>
+
+
+<script src="http://how2j.cn/study/vue.min.js"></script>
+
+</head>
+<body>
+    <script src="http://how2j.cn/study/vue.min.js"></script>
+ 
+    <div id="div1">
+       
+      <button v-on:click="toggle">切换隐藏显示</button>
+      <div v-if="show"> 默认这一条是看得见的</div>
+    </div>
+        
+    <div id="div2">
+        <button v-on:click="moyiba"> 摸一把彩票 10%的几率，建议一边点击一边心里默数，多少次了,站长表示最多点了40次才中奖，妈蛋~ </button>
+        <div v-if="show"> 中了500万！</div>
+        <div v-else>谢谢惠顾！</div>  
+    </div>
+    <div id="div3">
+        <button v-on:click="toutai"> 看看下辈子投胎是做什么的 </button>
+        <div v-if="number>98"> 神仙</div>
+        <div v-else-if="number>95"> 国家领导人</div>
+        <div v-else-if="number>90"> 大富商</div>
+        <div v-else-if="number>80"> 大企业主</div>
+        <div v-else-if="number>70"> 演艺明星</div>
+        <div v-else-if="number>60"> 小企业主</div>
+        <div v-else-if="number>50"> 普通公务员</div>
+        <div v-else-if="number>40"> 小个体户</div>
+        <div v-else-if="number>30"> 血汗工厂工人</div>
+        <div v-else-if="number>20"> 偏远山区农民</div>
+        <div v-else> 流浪汉</div>
+    </div>
+    <script>
+        new Vue({
+          el: '#div1',
+          data: {
+              show:true
+          },
+          methods:{
+              toggle: function(){
+                  this.show=!this.show;
+              }
+          }
+        })
+        new Vue({
+            el: '#div2',
+            data: {
+                show:false
+            },
+            methods:{
+                moyiba: function(){
+                    this.show=Math.random()<0.5
+                }
+            }
+        })
+        new Vue({
+            el: '#div3',
+            data: {
+                number:0
+            },
+            methods:{
+                toutai: function(){
+                    this.number=Math.random()*100
+                }
+            }
+        })
+    </script>
+
+<!-- Mirrored from 59.110.226.79:8888/police3D1.4/view/mainView.html by HTTrack Website Copier/3.x [XR&CO'2013], Mon, 18 Mar 2019 02:51:58 GMT -->
+</html>

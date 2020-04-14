@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<title>computed</title>
+
+<script src="http://how2j.cn/study/vue.min.js"></script>
+<style>
+    table tr td{
+        border:1px solid gray;
+        padding:10px;
+            
+    }
+    table{
+        border-collapse:collapse;
+        width:800px;
+        table-layout:fixed;
+    }
+    tr.firstLine{
+        background-color: lightGray;
+    }
+</style>
+</head>
+<body>
+    <div id="div1">
+        <table align="center" >
+            <tr class="firstLine">
+                <td>人民币</td>
+                <td>美元</td>
+            </tr>      
+            <tr>
+                <td align="center" colspan="2">
+                    汇率： <input type="number" v-model.number="exchange" />
+                </td>
+            </tr>                
+            <tr>                
+                <td align="center">
+                    ￥: <input type="number" v-model.number = "rmb"  />
+                </td>
+                <td align="center">
+                    <!-- $: {{ rmb/exchange }} -->
+                    <!-- $: {{ dollar }} -->
+                    $: {{ getDollar() }}
+                </td>
+            </tr>
+        </table>
+    </div>
+    <script>    
+        new Vue({
+            el: '#div1',
+            data: {
+                exchange:6.4,
+                rmb:0
+            },
+            methods:{
+                getDollar:function() {
+                    return this.rmb / this.exchange;
+                }
+            },
+            computed:{//computed 是有缓存的，只要rmb没有变化，dollar 会直接返回以前计算出来的值，而不会再次计算。 这样如果是复杂计算，就会节约不少时间。而methods每次都会调用
+                dollar:function() {
+                    return this.rmb / this.exchange;
+                }
+            }
+        })                
+    </script>
+</body>
+</html>

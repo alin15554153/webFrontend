@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<!-- Mirrored from 59.110.226.79:8888/police3D1.4/view/mainView.html by HTTrack Website Copier/3.x [XR&CO'2013], Mon, 18 Mar 2019 02:51:46 GMT -->
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<title>for</title>
+
+
+<script src="http://how2j.cn/study/vue.min.js"></script>
+<style>
+    table tr td{
+        border:1px solid gray;
+    }
+    table{
+        border-collapse:collapse;
+        width:300px;
+    }
+    tr.firstLine{
+        background-color: lightGray;
+    }
+</style>
+</head>
+<body>
+    <div id="div1">
+        <table align="center" >
+            <tr class="firstLine">
+                <td>name</td>
+                <td>hp</td>
+            </tr>
+            <tr v-for="hero in heros">
+                <td>{{hero.name}}</td>
+                <td>{{hero.hp}}</td>
+            </tr>
+        </table>
+    </div>
+    <div id="div2">
+        <table align="center" >
+            <tr class="firstLine">
+                <td>number</td>
+                <td>name</td>
+                <td>hp</td>
+            </tr>
+            <tr v-for="hero,index in heros">
+                <td>{{index+1}}</td>
+                <td>{{hero.name}}</td>
+                <td>{{hero.hp}}</td>
+            </tr>
+        </table>
+    </div>
+    <div id="div3">
+        <div v-for="i in 10">
+            {{ i }}
+        </div>
+    </div>
+    <script>
+        var data = [
+            {name:"盖伦",hp:341},
+            {name:"提莫",hp:225},
+            {name:"安妮",hp:427},
+            {name:"死歌",hp:893}
+        ];
+        new Vue({
+            el: '#div1',
+            data: {
+                heros:data
+            }
+        })
+        new Vue({
+            el: '#div2',
+            data: {
+                heros:data
+            }
+        })  
+        new Vue({
+            el: '#div3'
+        })
+      
+    </script>
+
+<!-- Mirrored from 59.110.226.79:8888/police3D1.4/view/mainView.html by HTTrack Website Copier/3.x [XR&CO'2013], Mon, 18 Mar 2019 02:51:58 GMT -->
+</html>

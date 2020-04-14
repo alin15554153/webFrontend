@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html xmlns:v-on="http://www.w3.org/1999/xhtml">
+
+<!-- Mirrored from 59.110.226.79:8888/police3D1.4/view/mainView.html by HTTrack Website Copier/3.x [XR&CO'2013], Mon, 18 Mar 2019 02:51:46 GMT -->
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<title>v-on</title>
+
+
+<script src="http://how2j.cn/study/vue.min.js"></script>
+<style type="text/css">
+    * {
+        margin: 0 auto;
+        text-align:center;
+        line-height: 40px;
+    }
+    div {
+        width: 100px;
+        cursor:pointer;
+    }
+    #grandFather {
+        background: green;
+    }
+    #father {
+        background: blue;
+    }
+    #me {
+        background: red;
+    }#son {
+         background: gray;
+     }
+ </style>
+
+</head>
+<body>
+    <div id="div1">
+        <div>一共点击了  {{clickNumber}}次</div>
+        <!-- <button v-on:click="count">点击</button> -->
+        <button @click="count">点击</button>
+    </div>
+
+    <div id="content">
+        <div id="grandFather"  @click="doc">
+            grandFather
+            <div id="father" @click.self="doc">
+                father
+                <div id="me" @click="doc">
+                    me
+                    <div id="son" @click="doc">
+                        son
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        //案例1
+        new Vue({
+            el: '#div1',
+            data: {
+                clickNumber:0
+            },
+            methods:{
+                count: function(){
+                    this.clickNumber++;
+                }
+            }
+        })
+
+
+        var content = new Vue({
+            el: "#content",
+            data: {
+                id: ''
+            },
+            methods: {
+                doc: function () {
+                    this.id= event.currentTarget.id;
+                    alert(this.id)
+                }
+            }
+        })
+
+    </script>
+
+<!-- Mirrored from 59.110.226.79:8888/police3D1.4/view/mainView.html by HTTrack Website Copier/3.x [XR&CO'2013], Mon, 18 Mar 2019 02:51:58 GMT -->
+</html>

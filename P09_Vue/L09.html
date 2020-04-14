@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<title>filter</title>
+
+<script src="http://how2j.cn/study/vue.min.js"></script>
+<style>
+    table tr td{
+        border:1px solid gray;
+        padding:10px;
+            
+    }
+    table{
+        border-collapse:collapse;
+        width:800px;
+        table-layout:fixed;
+    }
+    tr.firstLine{
+        background-color: lightGray;
+    }
+</style>
+</head>
+<body>
+    <div id="div1">
+        <table align="center" >
+            <tr class="firstLine">
+                <td>输入数据</td>
+                <td>过滤后的结果</td>
+            </tr>      
+            <tr>
+                <td align="center">
+                    <input v-model= "data"  />
+                </td>
+                <td align="center">
+                    {{ data|capitalize|capitalizeLastLetter }}
+                </td>
+            </tr>
+        </table>
+    </div>
+            
+    <script>     
+        //全局过滤器
+        Vue.filter('capitalize', function (value) {
+            if (!value) return ''
+            value = value.toString()
+            return value.charAt(0).toUpperCase() + value.slice(1)
+        })
+            
+        Vue.filter('capitalizeLastLetter', function (value) {
+            if (!value) return '' //如果为空，则返回空字符串
+            value = value.toString()
+            return value.substring(0,value.length-1)+ value.charAt(value.length-1).toUpperCase()
+        })
+
+        new Vue({
+            el: '#div1',
+            data: {
+                data:''
+            },
+            filters:{
+                capitalize:function(value) {
+                    if (!value) return '' //如果为空，则返回空字符串
+                    value = value.toString()
+                    return value.charAt(0).toUpperCase() + value.substring(1)
+                },
+                capitalizeLastLetter:function(value) {
+                    if (!value) return '' //如果为空，则返回空字符串
+                    value = value.toString()
+                    return value.substring(0,value.length-1)+ value.charAt(value.length-1).toUpperCase()
+                }
+            }
+        })    
+    </script>
+</body>
+</html>
