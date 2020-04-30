@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        /** 标准内置对象  */
+        {
+            console.log('------------------对象---------------------')
+            var testObj = {
+                name: 'alin',
+                say: function () {
+                    alert(1)
+                }
+            }
+            console.log(testObj)
+            testObj.staticPro = 'staticProperties1'
+            testObj.staticFn = function () {
+                alert(2)
+            }
+            console.log(testObj)
+            /** 值 */
+            console.log('------------------值---------------------')
+            console.log(Infinity)
+            console.log(NaN)
+            console.log(undefined)
+            console.log(null)
+            console.log(globalThis)
+
+            /** 函数 */
+            console.log('------------------函数---------------------')
+            console.log(eval)
+            console.log(isFinite)//该全局 isFinite() 函数用来判断被传入的参数值是否为一个有限数值
+            console.log(isNaN)//函数用来确定一个值是否为NaN  因为 NaN == NaN 和 NaN === NaN 都会返回 false
+            console.log(parseFloat)//函数解析一个参数（必要时先转换为字符串）并返回一个浮点数
+            console.log(parseInt)//parseInt(string, radix)   将一个字符串 string 转换为 radix 进制的整数， radix 为介于2-36之间的数。
+            console.log(decodeURI)//函数解码一个由encodeURI 先前创建的统一资源标识符（URI）或类似的例程。
+            console.log(decodeURIComponent)//方法用于解码由 encodeURIComponent 方法或者其它类似方法编码的部分统一资源标识符（URI）。
+            console.log(encodeURI)//函数通过将特定字符的每个实例替换为一个、两个、三或四转义序列来对统一资源标识符 (URI) 进行编码
+            console.log(encodeURIComponent)//函数通过将特定字符的每个实例替换为一个、两个、三或四转义序列来对统一资源标识符 (URI) 进行编码
+
+            /** 基本对象 */
+            console.log('------------------基本对象---------------------')
+            console.log({Function})
+            console.log(new Object())
+            console.log(Boolean.prototype)
+            console.log(Symbol.prototype)
+            console.log({Symbol})
+            console.log(Number.prototype)
+            /** 错误对象 */
+            console.log('------------------错误对象---------------------')
+            console.log({Error})
+            /** 数字和日期对象 */
+            console.log('------------------数字和日期对象---------------------')
+            console.log(Number.prototype)
+            console.log(BigInt.prototype)
+            console.log(Math.prototype)
+            console.log(Date.prototype)
+            /** 字符串 */
+            console.log('------------------字符串---------------------')
+            console.log(String.prototype)
+            console.log(RegExp.prototype)
+            /** 可索引的集合对象 */
+            console.log('------------------可索引的集合对象---------------------')
+            console.log(Array.prototype)
+            /** 使用键的集合对象 */
+            console.log('------------------使用键的集合对象---------------------')
+            console.log(Map.prototype)
+            console.log(Set.prototype)
+
+            /** 结构化数据 */
+            console.log('------------------结构化数据---------------------')
+            console.log(ArrayBuffer.prototype)
+            console.log(SharedArrayBuffer .prototype)
+            console.log(Atomics)
+            console.log(DataView .prototype)
+            console.log(JSON)
+
+            /** 控制抽象对象 */
+            console.log('------------------控制抽象对象---------------------')
+            console.log(Promise.prototype)
+            var Generator = function* () {
+                yield 1;
+                yield 2;
+                yield 3;
+            }
+            console.log(Generator.prototype)
+            var GeneratorFunction = Object.getPrototypeOf(function*(){}).constructor
+            console.log(GeneratorFunction.prototype)
+            var AsyncFunction = Object.getPrototypeOf(async function () {    }).constructor;
+            console.log(AsyncFunction.prototype)
+
+            /** 反射 */
+            console.log('------------------反射---------------------')
+            console.log(Reflect)
+            console.log({Proxy})
+
+
+
+
+            console.log(window)
+            console.log({document})
+            console.log(HTMLDocument.prototype)
+            console.log(Document.prototype)
+            console.log(Node.prototype)
+            console.log(EventTarget.prototype)
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>

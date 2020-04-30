@@ -267,7 +267,6 @@ function liguilin( window, noGlobal ) {
                 }
             }
         }
-
         // Return the modified object
         return target;
     };
@@ -324,7 +323,6 @@ function liguilin( window, noGlobal ) {
 
         each: function( obj, callback ) {
             var length, i = 0;
-
             if ( isArrayLike( obj ) ) {
                 length = obj.length;
                 for ( ; i < length; i++ ) {
@@ -339,7 +337,6 @@ function liguilin( window, noGlobal ) {
                     }
                 }
             }
-
             return obj;
         },
 
@@ -439,7 +436,6 @@ function liguilin( window, noGlobal ) {
         // properties to it so it needs to exist.
         support: support
     } );
-
     if ( typeof Symbol === "function" ) {
         jQuery.fn[ Symbol.iterator ] = arr[ Symbol.iterator ];
     }
@@ -10811,7 +10807,6 @@ function liguilin( window, noGlobal ) {
     if ( typeof noGlobal === "undefined" ) {
         window.jQuery = window.$ = jQuery;
     }
-    console.log(jQuery)
     return jQuery;
 }
 window.onload = liguilin(window)

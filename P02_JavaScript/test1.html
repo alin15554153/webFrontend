@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        var testFn = function () {
+            this.name = 'alin'
+            this.say = function () {alert('say')}
+        }
+        testFn.prototype.age = 18
+        testFn.prototype.run = function() {alert('run')}
+        console.log(new testFn())
+        testFn.staticPro = 'staticPro'
+        testFn.staticFn = function () { alert('staticFn')}
+        console.log({testFn})
+
+
+        var arr = [1,2,3]
+        console.log(arr)
+        arr[0] = 4
+        console.log(arr)
+        var obj = {a:[1,2,3]}
+        console.log(obj)
+        obj.a[0]=4
+        console.log(obj)
+    </script>
+</head>
+<body>
+
+</body>
+</html>

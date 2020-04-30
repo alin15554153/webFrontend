@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function patt(str, patt) {
+            console.log(patt.toString() + '--------', str.match(patt), patt.test(str))
+        }
+
+        /** i */
+        patt("Is this all there is?", /[a-h]/i)
+
+        /** g */
+        patt("Is this all there is?", /[A-z]/g)
+
+        /** Chart */
+        patt("Is this all there is?", /[at]/g)
+
+        /** ^ */
+        patt("Is this all there is?", /[^a-h]/g)
+
+        /** Num */
+        patt("Is this all there is?", /[0-9]/g)
+
+/**元字符*/
+
+        /** . 单个字符*/
+        patt("That's hot!", /h.t/g)
+
+        /** w 单词字符*/
+        patt("Give 100%!", /\w/g)
+
+        /** d 数字*/
+        patt("Give 1001%!", /\d/g)
+
+        /** b 边界*/
+        patt("Give 2020%!", /\bG/g)
+
+/**量词*/
+        /** + 含至少一个 n 的字符串*/
+        patt("Hellooo World! Hello W3School!", /o+/g)//对至少一个 "o" 进行全局搜索：
+        patt("Hellooo World! Hello W3School!", /\w+/g)//对至少一个单词字符进行全局搜索：
+
+        /** * 含零个或多个 n 的字符串*/
+        patt("Hellooo World! Hello W3School!", /lo*/g) // 对 "l" 进行全局搜索，包括其后紧跟的一个或多个 "o"：
+
+        /** ? 包含零个或一个 n 的字符串*/
+        patt("Hellooo World! Hello W3School!", /lo?/g) // 对 "l" 进行全局搜索，包括其后紧跟的零个或一个 "o"：
+
+        /** {x} 包含 X 个 n 的序列的字符串*/
+        patt("Hellooo World! Hello W3School!", /\w{7}/g) // 对包含7位序列的子串进行全局搜索
+
+        /** {x,Y} 包含 X 至 Y 个 n 的序列的字符串*/
+        patt("Hellooo World! Hello W3School!", /\w{6,8}/g)
+
+        /** {x,} 包含 至少 X 个 n 的序列的字符串*/
+        patt("Hellooo World! Hello W3School!", /\w{6,}/g)
+
+        /** {$} 包含 至少 X 个 n 的序列的字符串*/
+        patt("Hellooo World! Hello W3School!", /!$/g) //对字符串结尾的 "!" 进行全局搜索
+
+        /** {^} 包含 至少 X 个 n 的序列的字符串*/
+        patt("Hellooo World! Hello W3School!", /^He/g) //对字符串开头的 "He" 进行全局搜索
+
+        /** {?=} 匹配任何其后紧接指定字符串 n 的字符串*/
+        patt("Is this all there is", /is(?= all)/g) //对其后紧跟 "all" 的 "is" 进行全局搜索：
+
+        /** {?!} 匹配任何其后紧接指定字符串 n 的字符串*/
+        patt("Is this all there is", /is(?! all)/g) //对其后不跟 "all" 的 "is" 进行全局搜索：
+
+        /** 手机号 */
+        patt("15811399626", /^1[3456789]\d{9}$/g)
+
+        /** QQ */
+        patt("1581039", /^[1-9]\d{4,9}$/g)
+
+        /** email */
+        patt("_wq-111.@-q_q..xyz", /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/)
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -110,6 +110,7 @@ function liguilin(window, noGlobal) {
         }
 
         // Return the modified object
+       
         return target;
     };
     jQuery.extend({
