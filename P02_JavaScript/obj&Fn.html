@@ -82,6 +82,8 @@
             console.dir('------------------使用键的集合对象---------------------')
             console.dir(Map)
             console.dir(Set)
+            console.dir(WeakMap)
+            console.dir(WeakSet)
 
             /** 结构化数据 */
             console.dir('------------------结构化数据---------------------')
@@ -110,10 +112,13 @@
             console.dir(Reflect)
             console.dir(Proxy)
 
-
+            
+            /** WebAssembly */
+            console.dir('------------------反射---------------------')
+            console.dir(WebAssembly)
 
             for (var obj in window) {
-                if (window[obj]) console.dir(window[obj])
+                // if (window[obj]) console.dir(window[obj])
             }
 
 
