@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title>dom</title>
+    <script src="vue.js"></script>
+    <script>
+
+    </script>
+</head>
+<style>
+    html,body{
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    .wrap{
+        height: 100%;
+        width: 100%;
+        display: flex;
+        /*flex-direction: column;*/
+        justify-content: space-around;
+        align-items: center;
+    }
+    .child{
+        height: 30%;
+        width: 25%;
+        border: #ff2c00 2px solid;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+
+    }
+</style>
+
+<body>
+<div class="wrap">父级容器
+    <hello message="global component"></hello>
+    <div id="div1"></div>
+    <div id="div2"></div>
+    <div id="div3"></div>
+    <div id="div4"></div>
+</div>
+
+
+<script type="module">
+    import store from "./kstore/index.js"
+    import template from "./template.js";
+
+    var pc = Vue.component("hello",{
+        props:["message"],
+        template :"<div ><h1>组件定义之全局组件</h1><h4>{{message}}</h4></div>"
+    });
+
+    function initT() {
+        new Vue({
+            el: '#div1',
+            store,
+            // components:{pc},
+            template: template,
+            data: {
+                message: {"name": "div1", "hp": 616}
+            }
+        })
+    }
+    function initH() {
+        var App = Vue.component("App",{
+            template :template,
+            //这种必须是方法
+            data(){
+                return{
+                    message: {"name": "div2", "hp": 616}
+                }
+            }
+        });
+        new Vue({
+            store,//方上面也行
+            render: h => h(App)
+        }).$mount('#div2')
+    }
+    function initE() {
+        var App = Vue.component("App",{
+            template :template,
+            store,
+            //这种必须是方法
+            data(){
+                return{
+                    message: {"name": "div3", "hp": 616}
+                }
+            }
+        });
+        const Ctor = Vue.extend(App)
+        const comp = new Ctor().$mount('#div3')
+    }
+    initT()
+    initH()
+    initE()
+</script>
+</body>
+
+</html>

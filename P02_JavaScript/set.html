@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+
+        var fa = function(){
+            this.a='a'
+            this.b ='b'
+            this.c={
+                a:'a+',
+                b:()=>{
+                    this.a
+                }
+            }
+        }
+        console.log(new fa().c.b())
+// 0 "a"
+// 1 "b"
+    </script>
+</head>
+
+<body>
+<div id="box">
+    dfsadfa
+    <span></span>
+</div>
+</body>
+<script>
+var box = document.getElementById('box')
+var span = document.querySelector('span')
+box.removeChild(span)
+</script>
+</html>

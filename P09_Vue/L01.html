@@ -1,38 +1,35 @@
 <!DOCTYPE html>
 <html>
-
-<!-- Mirrored from 59.110.226.79:8888/police3D1.4/view/mainView.html by HTTrack Website Copier/3.x [XR&CO'2013], Mon, 18 Mar 2019 02:51:46 GMT -->
 <head>
-<meta charset="utf-8">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-<title>dom</title>
-<link href="../css/mystyle.css" rel="stylesheet">
-
-<script src="http://how2j.cn/study/vue.min.js"></script>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title>dom</title>
+    <script src="vue.js"></script>
 </head>
 <body>
-    <div id="div1"> </div>
-    <div id="div2">
-            {{gareen.name}}
-    </div>
-    <script>
-        //准备数据
-        var gareen = {"name":"盖伦","hp":616};
-        //获取 html dom
-        var div1 = document.getElementById("div1");
-        //显示数据
-        div1.innerHTML= gareen.name;
-        
-        //通过vue.js 把数据和对应的视图关联起来
-        new Vue({
-            el: '#div2',
-            data: {
-                message: gareen
-            }
-        })
-          
-    </script>
+
+<div id="div">
+</div>
+<script type="module">
+    import store from "./kstore/index.js"
+    var vm = new Vue({
+        el: '#div',
+        store,
+        template: `
+        <div id="div">
+            <p @click="$store.commit('add')">{{message.name}}</p>
+            <p @click="$store.commit('add')">sync {{$store.state.counter}}</p>
+            <p @click="$store.dispatch('add')">async {{$store.state.counter}}</p>
+            <p>async {{$store.getters.doubleCounter}}</p>
+        </div>
+        `,
+        data: {
+            message: {"name": "盖伦", "hp": 616}
+        }
+    })
+    console.log(vm)
+</script>
 </body>
 
 <!-- Mirrored from 59.110.226.79:8888/police3D1.4/view/mainView.html by HTTrack Website Copier/3.x [XR&CO'2013], Mon, 18 Mar 2019 02:51:58 GMT -->
